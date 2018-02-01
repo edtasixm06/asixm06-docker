@@ -4,6 +4,7 @@
 ## Llistat de contingut
  * ldapserver:base
  * ldapserver:dataDB
+ * phpldapadmin
  * hostpam:base
  * hostpam:ldap
  * nfsserver:pam
