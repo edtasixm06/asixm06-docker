@@ -6,16 +6,18 @@
 #
 # ---------------------------------------------------------
 FROM fedora:24
-MANTAINER @edt "@edt ASIX-M06 Curs 2017-2018"
-RUN dnf -y update vim
-RUN dnf y install iputils iproute procps mlocate man-db nmap tree 
+MAINTAINER @edt "@edt ASIX-M06 Curs 2017-2018"
+RUN dnf -y update vi
+RUN dnf -y install iputils iproute procps mlocate man-db nmap tree 
 RUN dnf -y install uw-imap sendmail tftp tftp-server vsftpd httpd telnet telnet-server openssh openssh-server openssh-clients
 RUN mkdir /opt/docker
-COPY * /opt/docker/
-COPY index.html /var/www/html
-COPY index.html README.md /var/ftp/pub
-COPY index.html README.md /var/lib/tftpboot
-CMD ["/bin/bash /opt/docker/startup.sh"]
+COPY ./ /opt/docker
+RUN chmod +x /opt/docker/startup.sh
+COPY data-files/index.html /var/www/html
+COPY data-files/index.html data-files/README.txt /var/ftp/pub/
+COPY data-files/index.html data-files/README.txt /var/lib/tftpboot/
+COPY xinetd-files/* /etc/xinetd.d/
+CMD ["/opt/docker/startup.sh"]
 
 
 
