@@ -4,7 +4,7 @@ Creació de la imatge **hostbase:base**
 
 Conté una imatge base fedora:24 amb tot de serveis de xarxa activats per fer-hi proves de connectivitat. Conté activats tant serveis sand alone com xinetd.
 
-serveis (port,transport)
+### serveis (port,transport)
 
  * xinetd:
    * echo     (7, tcp, udp)
@@ -21,7 +21,6 @@ serveis (port,transport)
    * echo-bis    (2007, tcp, redirect localhost:7)
    * http-switch (2080, tcp, redirect localhost:80)
 
-
  * httpd  (80,tcp)
  * vsftpd (20,21, tcp)
  * tftp   (69, udp)
@@ -29,5 +28,9 @@ serveis (port,transport)
  * ssh    (22, tcp)
  * telnet (23, tcp)
 
+## Utilització
 
+  docker build -t imatge .
+  docker run --name container -h container -d imatge
+  docker exec -it container /bin/bash
 
