@@ -30,7 +30,9 @@ Conté una imatge base fedora:24 amb tot de serveis de xarxa activats per fer-hi
 
 ## Utilització
 
-  docker build -t imatge .
-  docker run --name container -h container -d imatge
-  docker exec -it container /bin/bash
+docker build -t imatge .
+
+docker run --name container -h container -d imatge
+
+docker exec -it container /bin/bash
 
